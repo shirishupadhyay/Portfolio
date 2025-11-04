@@ -796,12 +796,18 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
+.footer-content p {
+    color: var(--header-text) !important;
+    margin: 0;
+}
+
 .footer-social-links {
     margin-top: 15px;
 }
 
 .footer-social-links a {
-    color: var(--header-text); /* This should work if no higher specificity rule overrides it */
+    color: var(--header-text);
     font-size: 1.5rem;
     margin: 0 10px;
     transition: color var(--transition-speed);
@@ -1113,4 +1119,125 @@ section.fade-in {
     .section-title {
         font-size: 1.8rem;
     }
+}
+
+/* ========================================
+   Back to Top Button
+======================================== */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+#back-to-top:hover {
+    background-color: var(--accent-color);
+    transform: translateY(0) scale(1.1);
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ========================================
+   Achievements Section
+======================================== */
+.achievements-section {
+    background-color: var(--bg-secondary);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.achievement-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.achievement-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.achievement-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.achievement-issuer {
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.achievement-description {
+    font-size: 0.95rem;
+    color: var(--text-faded);
+    line-height: 1.6;
+}
+
+/* ========================================
+   Project Enhancements
+======================================== */
+.project-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-date {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    font-style: italic;
+}
+
+.project-demo {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    opacity: 0.8;
+}
+
+.project-demo i {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
