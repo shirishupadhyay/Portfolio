@@ -118,4 +118,26 @@ document.addEventListener('DOMContentLoaded', () => {
          window.history.replaceState({}, document.title, window.location.pathname);
       }, 5000);
    }
+
+   // AI/ML Typing Animation Completion
+   const typingText = document.querySelector('.typing-text');
+   if (typingText) {
+      // Remove the cursor after typing animation completes
+      setTimeout(() => {
+         typingText.classList.add('completed');
+      }, 4500); // 3.5s typing + 1s delay
+   }
+
+   // Dynamic Binary Code Generation
+   function generateBinaryCode() {
+      return Math.random().toString(2).substr(2, 8).padStart(8, '0');
+   }
+
+   // Update binary codes periodically for variety
+   const binaryCodes = document.querySelectorAll('.binary-code');
+   setInterval(() => {
+      binaryCodes.forEach(code => {
+         code.textContent = generateBinaryCode();
+      });
+   }, 3000);
 });
