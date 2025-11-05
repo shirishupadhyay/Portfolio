@@ -119,14 +119,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 5000);
    }
 
-   // AI/ML Typing Animation Completion
-   const typingText = document.querySelector('.typing-text');
-   if (typingText) {
-      // Remove the cursor after typing animation completes
-      setTimeout(() => {
-         typingText.classList.add('completed');
-      }, 4500); // 3.5s typing + 1s delay
-   }
+   // AI/ML Typing Animation - DISABLED
+   // const typingText = document.querySelector('.typing-text');
+   // if (typingText) {
+   //    setTimeout(() => {
+   //       typingText.classList.add('completed');
+   //    }, 4500);
+   // }
 
    // Dynamic Binary Code Generation
    function generateBinaryCode() {

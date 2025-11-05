@@ -73,6 +73,7 @@ body.dark-mode {
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -84,6 +85,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* ===========================================
@@ -354,14 +358,10 @@ body.dark-mode .ai-brain-icon {
 .ai-brain-icon:nth-child(1) { top: 10%; right: 10%; animation-delay: 0s; }
 .ai-brain-icon:nth-child(2) { bottom: 15%; left: 8%; animation-delay: 3s; }
 
-/* Typing Animation for Tagline */
+/* Typing Animation for Tagline - DISABLED */
 .typing-text {
     display: inline-block;
-    overflow: hidden;
-    border-right: 3px solid #66ccff;
-    white-space: nowrap;
-    animation: typing 3.5s steps(50, end), blink 0.75s step-end infinite;
-    animation-fill-mode: forwards;
+    /* Animation removed - static text */
 }
 
 .typing-text.completed {
@@ -1082,6 +1082,8 @@ body.dark-mode .hero-section {
     color: rgba(255, 255, 255, 0.95);
     margin-bottom: 25px;
     transition: color var(--transition-speed);
+    line-height: 1.6;
+    white-space: normal;
 }
 
 .hero-image {
@@ -1173,14 +1175,30 @@ body.dark-mode .about-section {
 
 .about-content {
     max-width: 900px;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
     font-size: 1.1rem;
     line-height: 1.8;
-    color: var(--text-primary);
-    transition: color var(--transition-speed);
+    color: #2c3e50;
+    transition: all var(--transition-speed);
     position: relative;
     z-index: 1;
+    /* Add card styling for better readability */
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
+}
+
+body.dark-mode .about-content {
+    background: rgba(30, 30, 30, 0.9);
+    color: #e0e0e0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* --- Skills Section --- */
@@ -1747,6 +1765,8 @@ section.fade-in {
         flex-direction: column-reverse;
         /* Image on top on smaller screens */
         text-align: center;
+        min-height: auto;
+        padding: 80px 20px 60px;
     }
 
     .hero-content {
@@ -1760,6 +1780,7 @@ section.fade-in {
 
     .hero-image {
         margin-bottom: 30px;
+        max-width: 300px;
     }
 
     /* --- Mobile Navigation Overrides --- */
@@ -1966,12 +1987,31 @@ section.fade-in {
 
 
 @media (max-width: 768px) {
+    .hero-section {
+        padding: 70px 15px 50px;
+        min-height: auto;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
     .hero-content h1 {
         font-size: 2.5rem;
+        line-height: 1.3;
     }
 
     .hero-content .tagline {
         font-size: 1.2rem;
+        line-height: 1.5;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+    .hero-image {
+        max-width: 280px;
+        margin-bottom: 25px;
     }
 
     .btn {
@@ -1980,7 +2020,15 @@ section.fade-in {
     }
 
     .section-padding {
-        padding: 40px 0;
+        padding: 40px 10px;
+    }
+
+    .about-content {
+        padding: 25px 20px;
+        margin: 0 auto;
+        font-size: 1rem;
+        max-width: calc(100% - 20px);
+        width: calc(100% - 20px);
     }
 
     .contact-form {
@@ -1990,14 +2038,37 @@ section.fade-in {
 }
 
 @media (max-width: 480px) {
+    .hero-section {
+        padding: 60px 10px 40px;
+    }
+
+    .section-padding {
+        padding: 30px 10px;
+    }
+
     .hero-content h1 {
         font-size: 2rem;
+        line-height: 1.3;
+    }
+
+    .hero-content .tagline {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
     }
 
     .hero-image {
-        width: 200px;
-        /* Make image slightly smaller */
-        height: 200px;
+        max-width: 220px;
+        min-width: 200px;
+    }
+
+    .about-content {
+        padding: 20px 15px;
+        margin: 0 auto;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        max-width: calc(100% - 20px);
+        width: calc(100% - 20px);
     }
 
     .nav-links li {
